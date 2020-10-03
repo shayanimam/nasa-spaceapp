@@ -14,6 +14,8 @@
    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
+   <script src="leaflet-GIBS-master/src/GIBSMetadata.js"></script>
+   <script src="leaflet-GIBS-master/src/GIBSLayer.js"></script>
 </head>
 
 <style>
@@ -21,6 +23,7 @@
 </style>
 
 <body>
+
    <div id="mapid"></div>
 
    <script>
@@ -34,6 +37,12 @@
 		tileSize: 512,
 		zoomOffset: -1
 	}).addTo(mymap);
+
+   var layer = new L.GIBSLayer('MODIS_Aqua_CorrectedReflectance_TrueColor', {
+    date: new Date('2015/04/01'),
+    transparent: true
+   }).addTo(mymap);
+
    </script>
 </body>
 
