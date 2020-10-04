@@ -16,6 +16,7 @@
    crossorigin=""></script>
    <script src="leaflet-GIBS-master/src/GIBSMetadata.js"></script>
    <script src="leaflet-GIBS-master/src/GIBSLayer.js"></script>
+   <script src="leaflet.wms-gh-pages/src/leaflet.wms.js"></script>
 </head>
 
 <style>
@@ -23,12 +24,13 @@
 </style>
 
 <body>
-
    <div id="mapid"></div>
 
    <script>
-      var mymap = L.map('mapid').setView([43.501171, -79.882453], 6);
-      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+      var mymap = L.map('mapid').setView([43.501171, -79.882453], 3);
+
+
+   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 18,
 		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
 			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -36,13 +38,20 @@
 		id: 'mapbox/streets-v11',
 		tileSize: 512,
 		zoomOffset: -1
-	}).addTo(mymap);
-
-   var layer = new L.GIBSLayer('MODIS_Aqua_CorrectedReflectance_TrueColor', {
-    date: new Date('2015/04/01'),
-    transparent: true
    }).addTo(mymap);
+   
+   
+   var wmsLayer = L.tileLayer.wms("https://firms.modaps.eosdis.nasa.gov/wms/key/55a94c50f217a710f229a431846eef8d/", {
+        layers: 'fires_viirs_24',
+        transparent: true,
+        format: 'image/png',
+    }).addTo(mymap);
 
+   function get_closest_fire(wmsData, coordinates){
+      //wmspoints within 100km of 43.6532° N, 79.3832° W (toronto)
+
+      return closestFireCoords;
+   }
    </script>
 </body>
 
