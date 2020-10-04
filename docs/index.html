@@ -5,13 +5,24 @@
    <meta charset="UTF-8">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title> Wildfires Global </title>
-   <h1>Wildfires Global</h1>
-   <h2>Check wildfire activity near you!</h2>
+   <title> Fire Data </title>
+   <div class="title">
+      <h1>Wildfire Global</h1>
+      <h2>Visualizing global fire data and more.</h2>
+      <div class="mapbtn">
+         <button>Try out our map here</button>
+      </div>
+   </div>
+   <!-- Leaflet stylesheet -->
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
-   <link rel="stylesheet" href="index.css"/>
+   <!-- Bootstrap stylesheet -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+   integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+   crossorigin="anonymous"/>
+   <link rel="stylesheet" type="text/css" href="styles.css"/>
+
    <!-- Make sure you put this AFTER Leaflet's CSS -->
    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -26,36 +37,104 @@
 <body>
    <div id="mapid"></div>
    <script>
+      // Initialize Leaflet Map
       var mymap = L.map('mapid').setView([43.501171, -79.882453], 3);
 
 
-   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-		maxZoom: 18,
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox/streets-v11',
-		tileSize: 512,
-		zoomOffset: -1
-   }).addTo(mymap);
-   
-   
-   var wmsLayer = L.tileLayer.wms("https://firms.modaps.eosdis.nasa.gov/wms/key/55a94c50f217a710f229a431846eef8d/", {
-        layers: 'fires_viirs_24',
-        transparent: true,
-        format: 'image/png',
-    }).addTo(mymap);
+      // Streetview layer
+      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+         maxZoom: 18,
+         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+         id: 'mapbox/streets-v11',
+         tileSize: 512,
+         zoomOffset: -1
+      }).addTo(mymap);
 
-   function get_closest_fire(wmsData, coordinates){
-      //wmspoints within 100km of 43.6532° N, 79.3832° W (toronto)
+      // Fire Filter Initialization 
+      var fireLayer = L.tileLayer.wms("https://firms.modaps.eosdis.nasa.gov/wms/key/55a94c50f217a710f229a431846eef8d/", {
+         layers: 'fires_viirs_24',
+         transparent: true,
+         format: 'image/png',
+      });
+      
+      // Warm/Cold Layer Initialization
+      var warmcoldLayer = new L.GIBSLayer('SMAP_L4_Frozen_Area', {
+         date: new Date('2020/09/11'),
+         transparent: true,
+         });
 
-      return closestFireCoords;
-   }
+      // Cloud Path Layer Initialization
+      var cloudpathLayer = new L.GIBSLayer('MODIS_Terra_Cloud_Water_Path', {
+         date: new Date('2020/09/11'),
+         transparent: true,
+         });
+
+      // Cloud Path Layer Initialization
+      var nightLayer = new L.GIBSLayer('VIIRS_SNPP_DayNightBand_ENCC', {
+         date: new Date('2020/09/11'),
+         transparent: true,
+         });
+
+      function reset_map(){
+         // Resets the map by removing all layers
+         var i = 0;
+         mymap.eachLayer(function(layer){
+            if (i != 0){
+               mymap.removeLayer(layer);
+            }
+            i += 1;
+         });
+      }
+
+      function show_fire(){
+         // Display fire spots on map
+         fireLayer.addTo(mymap);
+      }
+
+      function show_warmcold(){
+         // Display warm/coldzones
+         reset_map();
+         warmcoldLayer.addTo(mymap);
+      }
+
+      function show_cloudpath(){
+         // Display cloud paths
+         reset_map();
+         cloudpathLayer.addTo(mymap);
+      }
+      function show_night(){
+         // Display night lights
+         nightLayer.addTo(mymap);
+      }
    </script>
-</body>
 
+   <div class="container">
+      
+      <div id="selectbtn">
+         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Select Layer
+         </button>
+      
+         <div class="dropdown-menu">
+            <a class="dropdown-item" href="#" onclick="reset_map()">None</a>
+            <a class="dropdown-item" href="#" onclick="show_fire()">Wildfires</a>
+            <a class="dropdown-item" href="#" onclick="show_warmcold()">Warm/Cold Zones</a>
+            <a class="dropdown-item" href="#" onclick="show_cloudpath()">Cloud Path</a>
+            <a class="dropdown-item" href="#" onclick="show_night()">Night Lights</a>
+            
+         </div>
+      </div>
+      
+   </div>
+
+   <!-- Bootstrap plugins -->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
    
-
+</body>
 </html>
 
 
