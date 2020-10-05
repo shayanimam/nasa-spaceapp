@@ -9,12 +9,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.nav_links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+}
 .title h1{
     font-size: 70px;
 }
-.title mapbtn{
+.mapbtn{
     align-items: center;
 }
+
 #mapid {
     height: 600px;
     width: 1000px;
