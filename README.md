@@ -16,7 +16,7 @@ Base Map No Filter
 ![No Filter](docs/imgs/basemap.png)
 
 ```
-Maps Displaying Realtime Worldwife Wildfire Activity
+Maps Displaying Realtime Worldwide Wildfire Activity
 ```
 ![Fire Filter](docs/imgs/firesmap.png)
 
