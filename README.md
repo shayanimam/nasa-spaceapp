@@ -28,12 +28,12 @@ Map showing Warm/Cold Zones Filter during Winter
 ```
 Map showing Warm/Cold Zones during Summer
 ```
-![Warm Filter](docs/imgs/coldzonemap1.png)
+![Warm Filter](docs/imgs/coldzonemap2.png)
 
 ```
 Map showing Cloud Pathways
 ```
-![Cloud Filter](docs/imgs/cloudzone.png)
+![Cloud Filter](docs/imgs/cloudmap.png)
 
 ```
 Map showing Night Lights
