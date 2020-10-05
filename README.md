@@ -1,6 +1,6 @@
 # NASA SpaceApp Challenge 2020
 
-User friendly webapp that allows users to get a visual representation of satalite data 
+User friendly webapp that allows users to get a visual representation of satalite data, you can check out the site [here](https://spysly.github.io/nasa-spaceapp/).
 
 ## Index
 [Demo](#demo)
@@ -8,18 +8,21 @@ User friendly webapp that allows users to get a visual representation of satalit
 [Team](#team)
 
 ## Demo
-![No Filter](nasa-spaceapp\docs\imgs\noFilter.PNG)
 ```
 Map without filter
 ```
-![Fire Filter](nasa-spaceapp\docs\imgs\fire.PNG)
+![No Filter](docs/imgs/noFilter.png)
+
 ```
 Map with fire filter
 ```
-![Warm Cold Filter](nasa-spaceapp\docs\imgs\warmCold.PNG)
+![Fire Filter](docs/imgs/fire.png)
+
 ```
 Map with warm cold filter
 ```
+![Warm Cold Filter](docs/imgs/warmCold.png)
+
 ## Uses 
 Upon entering the site press the `Try out our map here` button.
 The user will be taken to a live map image where they can scroll around.
