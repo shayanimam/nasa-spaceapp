@@ -8,15 +8,15 @@ User friendly webapp that allows users to get a visual representation of satalit
 [Team](#team)
 
 ## Demo
-![No Filter](.\nasa-spaceapp\imgs\noFilter.PNG)
+![No Filter](imgs/noFilter.PNG)
 ```
 Map without filter
 ```
-![Fire Filter](.\nasa-spaceapp\imgs\fire.PNG)
+![Fire Filter](imgs/fire.PNG)
 ```
 Map with fire filter
 ```
-![Warm Cold Filter](.\nasa-spaceapp\imgs\warmCold.PNG)
+![Warm Cold Filter](imgs/warmCold.PNG)
 ```
 Map with warm cold filter
 ```
