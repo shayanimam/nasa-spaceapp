@@ -10,35 +10,15 @@
     transform: translate(-50%, -50%);
 }
 
-<<<<<<< HEAD
-.repobtn{
-    padding-top: 40px;
-=======
-nav{
-    height: 60px;
-}
-.navbar a{
-    list-style: none;
-    color: white;
-    text-decoration: none;
-}
-.nav_links{
-    list-style: none;
-    font-size: 25px;
-    padding-top: 8px;
-    display: flex; 
-    margin-left: auto;
-    margin-right: auto;
-}
-a:hover{
-    color: black;
-    background-color: white;
->>>>>>> 1edfb041883bb674513b2908bd21dc09f3c57180
-}
 .title h1{
     font-size: 70px;
 }
 .mapbtn{
+    align-items: center;
+}
+
+.repobtn{
+    padding-top: 20px;
     align-items: center;
 }
 
