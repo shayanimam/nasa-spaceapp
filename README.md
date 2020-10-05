@@ -1,13 +1,13 @@
-#NASA SpaceApp Challenge 2020
+# NASA SpaceApp Challenge 2020
 
 User friendly webapp that allows users to get a visual representation of satalite data 
 
-##Index
+## Index
 [Demo](#demo)
 [Uses](#uses)
 [Team](#team)
 
-##Demo
+## Demo
 ![No Filter](.\nasa-spaceapp\imgs\noFilter.PNG)
 ```
 Map without filter
