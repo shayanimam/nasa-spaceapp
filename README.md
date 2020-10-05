@@ -47,3 +47,4 @@ Pressing `Select Layer` will allow the user to add layers to see visual
 satalite data
 
 ## Team
+Shayan Imam, Pranshu Patel, Zain Jaffary, Yaman Abouyouniss
