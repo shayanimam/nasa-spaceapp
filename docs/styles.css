@@ -71,9 +71,11 @@ body{
     margin-left: 50px;;
 }
 #about{
-    margin-left: 200px;
+    position: relative;
+    margin-left: 50px;;
     
 }
 #repo{
-    margin-left: 500px;
+    position: relative;
+    margin-left: 50px;;
 }
