@@ -10,6 +10,7 @@
     transform: translate(-50%, -50%);
 }
 
+<<<<<<< HEAD
 nav{
     height: 60px;
 }
@@ -30,10 +31,17 @@ a:hover{
     color: black;
     background-color: white;
 }
+=======
+>>>>>>> 8945507329540add659d9fbe414202be12fdef4a
 .title h1{
     font-size: 70px;
 }
 .mapbtn{
+    align-items: center;
+}
+
+.repobtn{
+    padding-top: 20px;
     align-items: center;
 }
 
