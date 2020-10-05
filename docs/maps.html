@@ -2,6 +2,13 @@
 <html lang="en">
 
 <head>
+
+   <title>
+      NASA Real Time Satellite Map
+   </title>
+   <div id="maptitle">
+      NASA Real Time Satellite Map
+   </div>
    <meta charset="UTF-8">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -151,10 +158,10 @@
             Select Layer
          </button>
          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#" onclick="reset_map()">None</a>
-            <a class="dropdown-item" href="#" onclick="show_warmcold()">Warm/Cold Zones</a>
-            <a class="dropdown-item" href="#" onclick="show_cloudpath()">Cloud Path</a>
-            <a class="dropdown-item" href="#" onclick="show_night()">Night Lights</a>
+            <a class="dropdown-item" onclick="reset_map()">None</a>
+            <a class="dropdown-item" onclick="show_warmcold()">Warm/Cold Zones</a>
+            <a class="dropdown-item" onclick="show_cloudpath()">Cloud Path</a>
+            <a class="dropdown-item" onclick="show_night()">Night Lights</a>
             
          </div>
       </div>
