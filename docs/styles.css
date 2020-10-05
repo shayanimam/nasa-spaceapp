@@ -10,10 +10,6 @@
     transform: translate(-50%, -50%);
 }
 
-<<<<<<< HEAD
-.repobtn{
-    padding-top: 40px;
-=======
 nav{
     height: 60px;
 }
@@ -33,7 +29,6 @@ nav{
 a:hover{
     color: black;
     background-color: white;
->>>>>>> 1edfb041883bb674513b2908bd21dc09f3c57180
 }
 .title h1{
     font-size: 70px;
