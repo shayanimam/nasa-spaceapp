@@ -69,3 +69,13 @@ body{
     text-align: center;
     margin-top: 10px;;
 }
+#home{
+    margin-left: 50px;;
+}
+#about{
+    margin-left: 200px;
+    
+}
+#repo{
+    margin-left: 500px;
+}
