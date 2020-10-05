@@ -9,16 +9,36 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.navbar{
+ 
+    text-decoration: none;
+    height: 60px;
+    
+}
+.navbar a{
+    list-style: none;
+    color: white;
+    text-decoration: none;
+}
+.nav_links{
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+}
 .title h1{
     font-size: 70px;
 }
-.title mapbtn{
+.mapbtn{
     align-items: center;
 }
+
 .date-picker{
     text-align: center;
     margin-top: 10px;;
 }
+
 #mapid {
     height: 600px;
     width: 1000px;
