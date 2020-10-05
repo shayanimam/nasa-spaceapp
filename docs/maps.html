@@ -4,9 +4,9 @@
 <head>
    <nav class="navbar">
       <ul class="nav_links">
-         <li><a href="index.html">Home</a></li>
-         <li><a href= "#">About us</a></li>
-         <li><a href="https://github.com/spysly/nasa-spaceapp">Repo</a></li>
+         <li><a href="index.html" id="home">Home</a></li>
+         <li><a href= "#" id="about">About us</a></li>
+         <li><a href="https://github.com/spysly/nasa-spaceapp" id="repo">Repo</a></li>
       </ul>
    </nav>
    <meta charset="UTF-8">
@@ -21,6 +21,8 @@
    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
    crossorigin="anonymous"/>
    <link rel="stylesheet" type="text/css" href="styles.css"/>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 
    <!-- Make sure you put this AFTER Leaflet's CSS -->
    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
@@ -60,21 +62,22 @@
       
       // Warm/Cold Layer Initialization
       var warmcoldLayer = new L.GIBSLayer('SMAP_L4_Frozen_Area', {
-         date: new Date('2020/09/11'),
+         date: new Date('2020/09/01'),
          transparent: true,
          });
 
       // Cloud Path Layer Initialization
       var cloudpathLayer = new L.GIBSLayer('MODIS_Terra_Cloud_Water_Path', {
-         date: new Date('2020/09/11'),
+         date: new Date('2020/09/01'),
          transparent: true,
          });
 
       // Cloud Path Layer Initialization
       var nightLayer = new L.GIBSLayer('VIIRS_SNPP_DayNightBand_ENCC', {
-         date: new Date('2020/09/11'),
+         date: new Date('2020/09/01'),
          transparent: true,
          });
+
 
       function reset_map(){
          // Resets the map by removing all layers
@@ -87,6 +90,7 @@
          });
       }
 
+
       function show_fire(){
          // Display fire spots on map
          fireLayer.addTo(mymap);
@@ -95,36 +99,78 @@
       function show_warmcold(){
          // Display warm/coldzones
          reset_map();
+         var day = document.getElementById("day-chooser").value;
+         var date = new Date(year.value, month.value, day, 0, 0, 0, 0);
+         warmcoldLayer.setDate(date);
          warmcoldLayer.addTo(mymap);
+         
       }
 
       function show_cloudpath(){
          // Display cloud paths
          reset_map();
+         var day = document.getElementById("day-chooser").value;
+         var date = new Date(year.value, month.value, day, 0, 0, 0, 0);
+         cloudpathLayer.setDate(date);
          cloudpathLayer.addTo(mymap);
       }
       function show_night(){
          // Display night lights
+         reset_map();
+         var day = document.getElementById("day-chooser").value;
+         var date = new Date(year.value, month.value, day, 0, 0, 0, 0);
+         nightLayer.setDate(date);
          nightLayer.addTo(mymap);
       }
    </script>
 
    <div class="container">
       
+      <div class="date-picker">
+         <select name="Select Month" id="month">
+            <option value="1">Jan</option>
+            <option value="2">Feb</option>
+            <option value="3">Mar</option>
+            <option value="4">Apr</option>
+            <option value="5">May</option>
+            <option value="6">Jun</option>
+            <option value="7">Jul</option>
+            <option value="8">Aug</option>
+            <option value="9" selected >Sep</option>
+            <option value="10">Oct</option>
+            <option value="11">Nov</option>
+            <option value="12">Dec</option>
+         </select>
+         <input type="text" id="day-chooser" placeholder="1">
+         <select name="Select Year" id="year">
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020" selected>2020</option>
+         </select>
+
+      </div>
+
       <div id="selectbtn">
          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
             Select Layer
          </button>
-      
          <div class="dropdown-menu">
             <a class="dropdown-item" href="#" onclick="reset_map()">None</a>
-            <a class="dropdown-item" href="#" onclick="show_fire()">Wildfires</a>
             <a class="dropdown-item" href="#" onclick="show_warmcold()">Warm/Cold Zones</a>
             <a class="dropdown-item" href="#" onclick="show_cloudpath()">Cloud Path</a>
             <a class="dropdown-item" href="#" onclick="show_night()">Night Lights</a>
             
          </div>
       </div>
+      <div id = "firebtn">
+         <button onclick="show_fire()">
+            Show Live Wildfires
+         </button>
+      </div>
+      
       
    </div>
 
@@ -132,6 +178,7 @@
    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+   
    
 </body>
 </html>
