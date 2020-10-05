@@ -9,18 +9,23 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-nav{
+
+.navbar{
+ 
+    text-decoration: none;
     height: 60px;
-    background-color: #652139;
+    
+}
+.navbar a{
+    list-style: none;
+    color: white;
+    text-decoration: none;
 }
 .nav_links{
     display: flex;
+    list-style: none;
     justify-content: space-between;
     align-items: center;
-    font-size: 25px;
-    padding-top: 10px;
-    padding-right: 8px;
-    list-style: none;
 }
 .title h1{
     font-size: 70px;
