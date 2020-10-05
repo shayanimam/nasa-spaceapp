@@ -47,7 +47,7 @@ nav{
 }
 
 body{
-    background-image: url(../docs/forest.jpg);
+    background-image: url(imgs/forest.jpg);
     height: 100vh;
     background-size: cover;
 }
