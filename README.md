@@ -38,7 +38,7 @@ Map showing Cloud Pathways
 ```
 Map showing Night Lights
 ```
-![Night Filter](docs/imgs/nightmap.png)
+![Night Filter](docs/imgs/nightlights.png)
 
 ## Uses 
 Upon entering the site press the `Try out our map here` button.
