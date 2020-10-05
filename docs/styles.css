@@ -32,6 +32,11 @@ nav{
     align-items: center;
 }
 
+.date-picker{
+    text-align: center;
+    margin-top: 10px;;
+}
+
 #mapid {
     height: 600px;
     width: 1000px;
@@ -50,4 +55,15 @@ body{
 #selectbtn {
     margin-top: 10px;
     text-align: center;
+}
+
+#day-chooser{
+    width: 40px;
+    height: 22px;;
+}
+
+#firebtn{
+    
+    text-align: center;
+    margin-top: 10px;;
 }
