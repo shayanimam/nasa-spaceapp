@@ -1,27 +1,44 @@
 # NASA SpaceApp Challenge 2020
 
-User friendly webapp that allows users to get a visual representation of satalite data, you can check out the site [here](https://spysly.github.io/nasa-spaceapp/).
+User friendly webapp that allows users to get a visual representation of satalite data, you can check out the site here [https://spysly.github.io/nasa-spaceapp/](https://spysly.github.io/nasa-spaceapp/).
 
 ## Index
 [Demo](#demo)
+
 [Uses](#uses)
+
 [Team](#team)
 
 ## Demo
 ```
-Map without filter
+Base Map No Filter
 ```
-![No Filter](docs/imgs/noFilter.png)
+![No Filter](docs/imgs/basemap.png)
 
 ```
-Map with fire filter
+Maps Displaying Realtime Worldwife Wildfire Activity
 ```
-![Fire Filter](docs/imgs/fire.png)
+![Fire Filter](docs/imgs/firesmap.png)
 
 ```
-Map with warm cold filter
+Map showing Warm/Cold Zones Filter during Winter
 ```
-![Warm Cold Filter](docs/imgs/warmCold.png)
+![Cold Filter](docs/imgs/coldzonemap1.png)
+
+```
+Map showing Warm/Cold Zones during Summer
+```
+![Warm Filter](docs/imgs/coldzonemap1.png)
+
+```
+Map showing Cloud Pathways
+```
+![Cloud Filter](docs/imgs/cloudzone.png)
+
+```
+Map showing Night Lights
+```
+![Night Filter](docs/imgs/nightmap.png)
 
 ## Uses 
 Upon entering the site press the `Try out our map here` button.
