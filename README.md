@@ -8,15 +8,15 @@ User friendly webapp that allows users to get a visual representation of satalit
 [Team](#team)
 
 ## Demo
-![No Filter](imgs/noFilter.PNG)
+![No Filter](docs/imgs/noFilter.PNG)
 ```
 Map without filter
 ```
-![Fire Filter](imgs/fire.PNG)
+![Fire Filter](docs/imgs/fire.PNG)
 ```
 Map with fire filter
 ```
-![Warm Cold Filter](imgs/warmCold.PNG)
+![Warm Cold Filter](docs/imgs/warmCold.PNG)
 ```
 Map with warm cold filter
 ```
