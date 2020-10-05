@@ -10,11 +10,9 @@
     transform: translate(-50%, -50%);
 }
 
-.navbar{
- 
-    text-decoration: none;
+nav{
     height: 60px;
-    
+    justify-content: space-between;
 }
 .navbar a{
     list-style: none;
@@ -22,10 +20,10 @@
     text-decoration: none;
 }
 .nav_links{
-    display: flex;
     list-style: none;
-    justify-content: space-between;
-    align-items: center;
+    font-size: 25px;
+    padding-top: 8px;
+    display: flex; 
 }
 .title h1{
     font-size: 70px;
