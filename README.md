@@ -1,5 +1,7 @@
 # NASA SpaceApp Challenge 2020
 
+Note: The live site is currently being updated. There are some features missing along with some bugs. Use sparingly.
+
 User friendly webapp that allows users to get a visual representation of satalite data, you can check out the site here [https://spysly.github.io/nasa-spaceapp/](https://spysly.github.io/nasa-spaceapp/).
 
 ## Index
